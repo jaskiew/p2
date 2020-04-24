@@ -12,6 +12,8 @@ public:
 	int wysokoscStozka;
 	MyData();//konstruktor bezparametrowy
 	MyData(int r, int h1, int h2);//konstruktor parametrowy
+	~MyData();//destruktor
+	MyData(const MyData& mydata);//konstruktor kopiujacy
 	int oblicz_powierchnie();//dwie funkcje w klasie czyli METODY
 	int oblicz_objetosc();
 };
@@ -28,6 +30,18 @@ MyData::MyData(int r, int h1, int h2)//W przypadku parametrowego ustaiamy waroś
 	promienKuli = r;
 	wysokoscWalca = h1;
 	wysokoscStozka = h2;
+}
+
+MyData::~MyData()
+{
+	//TU DESTRUKTOR
+}
+
+MyData::MyData(const MyData& mydata)
+{
+	promienKuli = mydata.promienKuli;
+	wysokoscWalca = mydata.wysokoscWalca;
+	wysokoscStozka = mydata.wysokoscStozka;
 }
 
 int MyData::oblicz_powierchnie()//obliczanie powierzni i pola z rozpisaniem na poszczególne wzory aby zminimalizować opcje pomylenia się w zapisie wielkiego wzoru naraz
@@ -54,6 +68,7 @@ int main()
 	MyData SecondObj(15,25,4);
 	MyData ThirdObj(10,11,12);
 	MyData FourthObj(21, 19, 17);
+	MyData CopiedObj(SecondObj);//w konstruktorze kopiujacym jako parametr podajemy nazwe obiektu do skopiowania
 
 	//Wywołujemy metody dla każdego obiektu
 	
@@ -71,7 +86,11 @@ int main()
 	int objetosc4 = FourthObj.oblicz_objetosc();
 	int powierzchnia4 = FourthObj.oblicz_powierchnie();
 
-	cout << "Obietosc obiektu nr 3: " << objetosc3 << "		Powierzchnia obiektu nr 3: " << powierzchnia3 << endl << endl;
+	cout << "Obietosc obiektu nr 4: " << objetosc4 << "		Powierzchnia obiektu nr 4: " << powierzchnia4 << endl << endl;
+
+	int objetosc5 = CopiedObj.oblicz_objetosc();
+	int powierzchnia5 = CopiedObj.oblicz_powierchnie();
+	cout << "Obietosc obiektu nr 5: " << objetosc5 << "		Powierzchnia obiektu nr 5: " << powierzchnia5 << endl << endl;
 
 }
 
