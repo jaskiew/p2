@@ -53,6 +53,7 @@ int main()
 	MyData FirstObj;
 	MyData SecondObj(15,25,4);
 	MyData ThirdObj(10,11,12);
+	MyData FourthObj(21, 19, 17);
 
 	//Wywołujemy metody dla każdego obiektu
 	
@@ -65,6 +66,11 @@ int main()
 
 	cout << "Obietosc obiektu nr 1: " << objetosc1 << "		Powierzchnia obiektu nr 1: " << powierzchnia1 << endl;
 	cout << "Obietosc obiektu nr 2: " << objetosc2 << "		Powierzchnia obiektu nr 2: " << powierzchnia2 << endl;
+	cout << "Obietosc obiektu nr 3: " << objetosc3 << "		Powierzchnia obiektu nr 3: " << powierzchnia3 << endl;
+
+	int objetosc4 = FourthObj.oblicz_objetosc();
+	int powierzchnia4 = FourthObj.oblicz_powierchnie();
+
 	cout << "Obietosc obiektu nr 3: " << objetosc3 << "		Powierzchnia obiektu nr 3: " << powierzchnia3 << endl << endl;
 
 }
